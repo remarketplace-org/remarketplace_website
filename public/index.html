@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>reMarketplace — Pre-built fintech & Web3 infrastructure</title>
+<meta name="description" content="Pre-built products with AI, Blockchain & Finance under your brand name. Pick one, rebrand it, connect your data, and launch in days.">
+<meta name="theme-color" content="#F7541D">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<script src="/js/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="/" aria-label="reMarketplace home"><img class="lg-light" src="/img/logo-light.png" alt="reMarketplace" width="225" height="30"><img class="lg-dark" src="/img/logo-dark.png" alt="" width="225" height="30"></a>
+    <label class="nav-search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Search products" aria-label="Search products"></label>
+    <div class="nav-switch"><a class="on" href="#">reMarketplace</a><a href="https://app.reidentity.net" target="_blank" rel="noopener">reID</a></div>
+    <a class="btn btn-ghost signin" id="signin" href="/api/auth/reid/start"><span class="reid-dot">re</span><span class="lbl">Sign in with reID</span></a>
+    <div class="user" id="user" hidden><span class="avatar" id="uAv"></span><span class="u-name" id="uName"></span><button class="link" id="signout">Sign out</button></div>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode"><span class="sun">☀</span><span class="moon">☾</span></button>
+    <button class="btn btn-dark" data-book>Book a demo call</button>
+  </div>
+</header>
+<div class="toast" id="toast" hidden></div>
+
+<main>
+  <section class="hero wrap">
+    <span class="eyebrow">Pre-built infrastructure · Deploy in days</span>
+    <div class="hero-grid">
+      <h1>Pre-built products <em>with AI, Blockchain &amp; Finance</em> under your brand name.</h1>
+      <div class="hero-side">
+        <p>Every product below is fully functional infrastructure. Pick one, rebrand it, connect your data, and launch — no ground-up build required.</p>
+        <div class="hero-cta">
+          <button class="btn btn-accent" data-book>Book a demo call</button>
+          <a class="btn btn-ghost" href="#catalog">Browse products</a>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div><b>10</b><span>production-ready products</span></div>
+      <div><b>3 days</b><span>fastest go-live</span></div>
+      <div><b>One</b><span>identity layer across every module</span></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="bundle">
+      <div class="bundle-copy">
+        <span class="bundle-ico"><img src="/img/icon.png" alt="" width="22" height="22"></span>
+        <span class="eyebrow-light">Featured bundle</span>
+        <h2>reMARKETPLACE Core</h2>
+        <p>Launch fintech and Web3 products instantly using pre-built infrastructure designed for fast deployment, easy rebranding, scalability, and reduced development overhead.</p>
+        <div class="hero-cta">
+          <a class="btn btn-white" href="#catalog">Product details</a>
+          <button class="btn btn-outline-light" data-book>Book a walkthrough</button>
+        </div>
+      </div>
+      <div class="bundle-art" aria-hidden="true">
+        <div class="tile">ID</div><div class="tile">PY</div><div class="tile">EX</div>
+        <div class="tile">CU</div><div class="tile">LY</div><div class="tile">AI</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap catalog" id="catalog">
+    <div class="cat-head">
+      <h2>What you can own</h2>
+      <span id="count" class="muted"></span>
+    </div>
+    <div class="chips" id="cats"></div>
+    <div class="sort-row"><span class="sort-label">Sort</span><div class="chips" id="sorts"></div></div>
+    <p class="muted small">Every product ships with sandbox credentials — open a card to test it.</p>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>No products match your search.</p>
+  </section>
+
+  <section class="faq">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="eyebrow-dark">FAQ</span>
+        <h2>Questions buyers ask before the first call.</h2>
+        <p>Anything not covered here, we answer live in a 30-minute walkthrough of the product you care about.</p>
+        <button class="btn btn-accent" data-book>Book a demo call</button>
+      </div>
+      <div id="faqs"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="logo" href="/" aria-label="reMarketplace home"><img class="lg-light" src="/img/logo-light.png" alt="reMarketplace" width="225" height="30"><img class="lg-dark" src="/img/logo-dark.png" alt="" width="225" height="30"></a>
+    <span class="muted">Pre-built infrastructure for fintech and Web3.</span>
+    <span class="muted small">© <span id="yr"></span> Desert Tech Cloud Services LLC</span>
+  </div>
+</footer>
+
+<!-- Product drawer -->
+<div class="overlay" id="prodOv" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="pName">
+    <button class="x" data-close aria-label="Close">×</button>
+    <div id="prodBody"></div>
+  </aside>
+</div>
+
+<!-- Booking modal -->
+<div class="overlay center" id="bookOv" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bTitle">
+    <div class="modal-head">
+      <div><span class="muted small" id="bCounter"></span><h3 id="bTitle"></h3></div>
+      <button class="x" data-close aria-label="Close">×</button>
+    </div>
+    <div class="progress"><i id="bProg"></i></div>
+    <div class="modal-body" id="bBody"></div>
+    <div class="modal-foot" id="bFoot">
+      <button class="btn btn-ghost" id="bBack">Back</button>
+      <button class="btn btn-accent grow" id="bNext">Continue</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
+
+</body></html>
